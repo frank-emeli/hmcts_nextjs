@@ -1,6 +1,6 @@
 import { Task } from "../models/task";
 
-export async function createTask(task: Task): Promise<Task> {
+export async function createTask(task: Task): Promise<number> {
   const res = await fetch("http://localhost:5000/api/tasks", {
     method: "POST",
     headers: {
@@ -13,7 +13,8 @@ export async function createTask(task: Task): Promise<Task> {
     throw new Error("Failed to create task");
   }
 
-  return res.json();
+    const result = await res.json();
+    return result.id;
 }
 
 export async function getTask(id: number): Promise<Task> {

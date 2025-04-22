@@ -35,7 +35,7 @@ export class Task {
       title: this.title,
       description: this.description,
       status: this.status,
-      dueDate: this.dueDate.toISOString(),
+      due_date: this.dueDate.toISOString(),
     };
   }
 
