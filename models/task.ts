@@ -25,7 +25,7 @@ export class Task {
       json.title,
       json.description,
       json.status,
-      new Date(json.dueDate)
+      new Date(json.due_date)
     );
   }
 
