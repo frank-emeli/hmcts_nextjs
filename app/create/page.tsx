@@ -39,7 +39,7 @@ export default function CreateTaskPageProps() {
 	const commonInputClassName="w-full border border-2 border-black px-3 py-2 focus:border-3 focus:outline-offset-0 focus:outline-yellow-400 focus:outline-3"
 
 	return (
-		<div className="max-w-md mx-auto space-y-4 py-5">
+		<div className="max-w-2xl mx-auto space-y-4 py-5">
 			<h1 className="text-3xl font-bold">Create a new task</h1>
 			<form onSubmit={handleSubmit} className="p-4 border border-gray-300">
 				<div>

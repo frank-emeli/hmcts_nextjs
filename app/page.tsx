@@ -5,6 +5,7 @@ import {deleteTask, getTasks, updateTaskStatus} from "@/services/task-service";
 import { Task } from "@/models/task";
 import TaskCard from "@/components/task-card";
 import { useRouter } from "next/navigation";
+import Button from "@/components/button";
 
 export default function Home() {
 	const [tasks, setTasks] = useState<Task[]>([]);
@@ -51,32 +52,18 @@ export default function Home() {
 	};
 
 	return (
-		<div className="">
+		<div className="max-w-2xl mx-auto">
 			<main className="pt-4 px-8">
 				<div className="flex justify-between items-center pt-1 pb-5">
 					<h1 className="text-3xl font-bold">Task List</h1>
-					<button
+					<Button
+						label="Create new task"
+						onClick={() => router.push("/create")}
 						className="
 						bg-green-800
-						border-black
 						border-b-2
-						text-white
-			            hover:bg-green-900
-						focus:outline-yellow-400
-			            focus:outline
-			            focus:outline-3
-			            focus:outline-offset-0
-						px-4
-						py-2
-						mt-2
-						ml-2"
-						onClick={(e) => {
-							e.stopPropagation(); // Prevent the click from propagating to the card
-							router.push("/create");
-						}}
-					>
-						Create new task
-					</button>
+			            hover:bg-green-900"
+					/>
 				</div>
 				<ul>
 					{tasks.map((task) => (
