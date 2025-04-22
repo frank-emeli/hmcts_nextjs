@@ -17,7 +17,7 @@ export default function TaskCard({task, onTaskClick, onUpdate, onDelete, classNa
 	return (
 		<div
 			key={task.id}
-			className={`border border-gray-300 p-6 my-2 ${className || ""}`}
+			className={`border border-gray-300 p-6 my-2 cursor-pointer task-card ${className || ""}`}
 			onClick={() => onTaskClick(task)}
 		>
 			<h2 className="text-xl pb-4">{task.title}</h2>

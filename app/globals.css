@@ -32,3 +32,9 @@ header {
 footer {
   background-color: #f3f2f1;
 }
+
+.task-card:hover {
+  border-left-color: #1d70b8;
+  border-left-width: 4px;
+  box-sizing: border-box;
+}

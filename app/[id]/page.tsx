@@ -1,6 +1,4 @@
-import { Task } from "@/models/task";
-// import {useEffect, useState} from "react";
-import {getTask, getTasks} from "@/services/task-service";
+import {getTask} from "@/services/task-service";
 
 interface TaskPageProps {
     params: { id: number };
@@ -8,7 +6,6 @@ interface TaskPageProps {
 
 export default async function TaskPage({ params }: TaskPageProps) {
     const taskId = await params.id;
-    console.log(taskId);
 
     const task = await getTask(taskId);
 
