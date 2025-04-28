@@ -1,6 +1,6 @@
 # HMCTS Task Manager
 
-A Go backend api for task management with support for basic CRUD ops.
+A task management application built with NextJS with support for basic CRUD ops.
 
 ## Screenshot
 ### List page
