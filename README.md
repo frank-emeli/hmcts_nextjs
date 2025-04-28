@@ -2,6 +2,14 @@
 
 A Go backend api for task management with support for basic CRUD ops.
 
+## Screenshot
+### List page
+![App Screenshot](public/task-list.png)
+
+### Task detail page
+![App Screenshot](public/task-detail.png)
+
+
 ## 🧩 Project Overview
 
 This api supports:
