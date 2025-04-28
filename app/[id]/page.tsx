@@ -1,5 +1,7 @@
 import {getTask} from "@/services/task-service";
 import {TaskDetailActions} from "@/components/task-detail-actions";
+import {Task} from "@/models/task";
+import {TaskNotFoundError} from "@/errors/errors";
 
 interface TaskPageProps {
     params: { id: number };
@@ -8,7 +10,19 @@ interface TaskPageProps {
 export default async function TaskPage(props: TaskPageProps) {
     const taskId = (await props.params).id;
 
-    const task = await getTask(taskId);
+    let task: Task;
+    try {
+        task = await getTask(taskId);
+    } catch (error) {
+        let message = "An unexpected error occurred while fetching the task.";
+        if (error instanceof TaskNotFoundError) {
+            message = "Task not found.";
+        }
+        return <div className="max-w-2xl mx-auto space-y-4 py-5">
+            <h1 className="text-2xl font-bold">Error fetching task</h1>
+            <p>{message}</p>
+        </div>;
+    }
 
     return (
         <div>

@@ -1,4 +1,5 @@
 import { Task } from "../models/task";
+import {TaskNotFoundError} from "@/errors/errors";
 
 export async function createTask(task: Task): Promise<number> {
   const res = await fetch("http://localhost:5000/api/tasks", {
@@ -24,9 +25,17 @@ export async function getTask(id: number): Promise<Task> {
             "Content-Type": "application/json",
         },
         });
+
+    // Handle 404 error
+    if (res.status === 404) {
+        throw new TaskNotFoundError(`Task with id ${id} not found`);
+    }
+
+    // Handle other errors
     if (!res.ok) {
         throw new Error("Failed to fetch task");
     }
+
     const result = await res.json();
     return Task.fromJson(result);
 }
